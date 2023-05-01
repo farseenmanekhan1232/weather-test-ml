@@ -141,9 +141,6 @@ class Weather_Station:
 
 
 pre_array = np.array([
-    [0, 0, 0.31819805, 0.31819805, 0.6988, 0.81498571, 0.99349753],
-    [0, -0, 0, -0, 0.8444, 1, 0.96835143],
-    [0, 0, 0.45, 0, 0.87577, 0.95857143, 1.00128332],
     [-0, -0, -0, -0, 0.8224, 1.05714286, 0.99279368]
 ])
 
@@ -159,4 +156,7 @@ def run_ml_model(inputs):
     model = keras.models.load_model(os.getcwd()+"/weather_station.h5")
     prediction = model.predict(inputs)
     return class_names[np.argmax(prediction[0])]
-generate_new_model()
+
+if __name__=='__main__':
+    generate_new_model()
+    print(run_ml_model(pre_array))
