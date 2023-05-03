@@ -146,7 +146,7 @@ pre_array = np.array([
 
 
 def generate_new_model():
-    csv_path = os.getcwd()+"\Remote Weather Station.csv"
+    csv_path = os.getcwd()+"/Remote Weather Station.csv"
     df = pd.read_csv(csv_path)
     station = Weather_Station(df)
     station.Neural_Network(True)

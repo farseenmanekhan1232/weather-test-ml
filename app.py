@@ -6,8 +6,10 @@ app = Flask(__name__)
 
 from IoT_weather_station_neural_network import run_ml_model
 import numpy as np
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=['GET','POST'])
 def submit():
+    if request.method=='GET':
+        return 'done'
     wd = int(request.form['wd'])
     av_ws = int(request.form['av_ws'])
     mx_ws = int(request.form['mx_ws'])
